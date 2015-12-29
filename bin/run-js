@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+'use strict'
+/**
+ * run-js - A prototyping server that just works.
+ *
+ * @author Zach Bruggeman <mail@bruggie.com>
+ */
+
+const path = require('path')
+const mkdirp = require('mkdirp')
+const RunJS = require('../lib')
+
+// Create node_modules if it doesn't exist in the current folder
+mkdirp.sync(path.join(process.cwd(), 'node_modules'))
+
+let app = RunJS()
+
+let server = app.listen(60274, () => {
+  console.log(`run-js is listening on http://localhost:60274`)
+  console.log(`Open a file from this directory in the browser to see it in action.`)
+  console.log('Example: Create a file named `foo.js` in this directory, and visit')
+  console.log('http://localhost:60274/foo.js in your browser to see it ran.')
+})

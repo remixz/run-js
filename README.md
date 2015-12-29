@@ -52,7 +52,7 @@ Aside from Browserify, run-js uses [Express](https://github.com/strongloop/expre
 
 * [**@vjeux**](https://github.com/vjeux)'s challenge to create a better JavaScript prototyping environment: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
 * [**@ericclemmons**](https://github.com/ericclemmons)'s post about JavaScript fatigue: https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4
-* Modules such as [budo](https://github.com/mattdesl/budo), [beefy](https://github.com/chrisdickinson/beefy), and [wzrd](https://github.com/maxogden/wzrd), which all do a lot of what run-js does, but with less defaults, and just for running one file. I like those modules a lot, and I think they definitely work for a different type of workflow. The main difference with run-js is that it's aimed a bit more towards newbies, hence why it runs any file in the directory. Essentially, run-js is a playground: Everything just goes, and it's lots of fun! It's not really meant for serious work, but instead just
+* Modules such as [budo](https://github.com/mattdesl/budo), [beefy](https://github.com/chrisdickinson/beefy), and [wzrd](https://github.com/maxogden/wzrd), which all do a lot of what run-js does, but with less defaults, and just for running one file. I like those modules a lot, and I think they definitely work for a different type of workflow. The main difference with run-js is that it's aimed a bit more towards newbies, hence why it runs any file in the directory. Essentially, run-js is a playground: Everything just goes, and it's lots of fun! It's not really meant for serious work, but instead just trying things out.
 
 ## The Future
 

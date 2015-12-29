@@ -42,6 +42,18 @@ No need to go through the hullabaloo of setting up source maps. They're just the
 
 By default, `run-js` will render a page when you visit a file in the browser. However, if you need your own custom page, it's easy to do. Just create a `.html` file with the same name as your script. For example, if you had `foo.js`, create a `foo.html` in the same folder, and it'll use that for the template. It'll automatically insert your compiled script as well. (*Make sure to have a `<body>` tag for this to work.*)
 
+## Implementation
+
+run-js is powered by [Browserify](https://github.com/substack/node-browserify), and various transforms for it. I like [Webpack](https://github.com/webpack/webpack) as well, but I enjoy working with Browserify more, and find it easier to use overall, while still being able to do what I want to. I don't think run-js will need to change to Webpack, or some other future bundler, to get the functionality that's wanted. Of course, that could change... :wink:. The transform [installify](https://github.com/hughsk/installify) is used automatically install new dependencies. Really cool stuff!
+
+Aside from Browserify, run-js uses [Express](https://github.com/strongloop/express) to power the web server. Nothing too fancy there, really. run-js has an in-memory cache powered by [LevelUP](https://github.com/Level/levelup) and [MemDOWN](https://github.com/level/memdown). That could be migrated to a file cache pretty easily, but I'm not sure if it's really needed. It might be in the future, though, which is why I used LevelUP.
+
+## Inspiration
+
+* [**@vjeux**](https://github.com/vjeux)'s challenge to create a better JavaScript prototyping environment: http://blog.vjeux.com/2015/javascript/challenge-best-javascript-setup-for-quick-prototyping.html
+* [**@ericclemmons**](https://github.com/ericclemmons)'s post about JavaScript fatigue: https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4
+* Modules such as [budo](https://github.com/mattdesl/budo), [beefy](https://github.com/chrisdickinson/beefy), and [wzrd](https://github.com/maxogden/wzrd), which all do a lot of what run-js does, but with less defaults, and just for running one file. I like those modules a lot, and I think they definitely work for a different type of workflow. The main difference with run-js is that it's aimed a bit more towards newbies, hence why it runs any file in the directory. Essentially, run-js is a playground: Everything just goes, and it's lots of fun! It's not really meant for serious work, but instead just
+
 ## The Future
 
 Right now, this is just a taste of what I've envisioned for this project. The goal for this project is for it to become the de facto way for people new to JavaScript to get started. If not de facto, then at least a very easy way to get started.

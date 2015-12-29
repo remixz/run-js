@@ -13,8 +13,10 @@ const RunJS = require('../lib')
 // Create node_modules if it doesn't exist in the current folder
 mkdirp.sync(path.join(process.cwd(), 'node_modules'))
 
+// @TODO - add cli args
 let app = RunJS({
-  dir: process.cwd()
+  dir: process.cwd(),
+  watch: true
 })
 
 let server = app.listen(60274, () => {

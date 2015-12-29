@@ -13,7 +13,8 @@ fs.readdir(path.resolve(__dirname, './scenarios'), (err, tests) => {
     let testInput = path.join(testDirectory, 'input')
     tap.test(`scenario - ${testName}`, t => {
       let app = RunJS({
-        dir: testInput
+        dir: testInput,
+        watch: false
       })
       let testInfo = require(testDirectory)
       let expected = {

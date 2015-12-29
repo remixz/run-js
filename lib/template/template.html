@@ -8,6 +8,7 @@
   <body>
     <div id="root"></div>
 
-    <script src="/__bundle/<%= reqPath.replace(/\//g, '-') %>.bundle.js"></script>
+    <script src="/__bundle/<%= reqPath.replace(/\//g, '-') %>.bundle.js"></script><% if (watch) { %>
+    <script src="//localhost:35729/livereload.js?snipver=1" async defer></script><% } %>
   </body>
 </html>

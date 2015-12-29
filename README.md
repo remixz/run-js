@@ -1,5 +1,7 @@
 # run-js
 
+[![Build Status](https://travis-ci.org/remixz/run-js.svg)](https://travis-ci.org/remixz/run-js)
+
 A prototyping server that just works. [*A first revision!*](#the-future)
 
 *Click to enlarge image:*

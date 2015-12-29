@@ -62,7 +62,7 @@ Right now, this is just a taste of what I've envisioned for this project. The go
 
 Here are some ideas of what I want to do with this project. They range from small to big, and are all open to anyone who's interested in working on them.
 
-* **Auto-reloading on file changes.** This would be nice to have, and probably not too hard to implement.
+* **Auto-reloading on file changes.** ~~This would be nice to have, and probably not too hard to implement.~~ Done! Implemented by @abacon in [GH-1](https://github.com/remixz/run-js/pull/1). :smile:
 * **Hot module replacement.** Similar to auto-reloading, but a bit more involved. Would be really nice for React projects.
 * **More extensibility.** For this first version, the app isn't very extensible for adding new scripting languages, or even different types of files, like styles. I want to make it so that anything could be compiled by this project. Of course, including literally everything would be a bit overkill, so a way to easily add new file handlers is definitely needed. There'll always be a set of commonly used handlers included, like there is now for scripts. With styles, for example, it'd maybe include handlers for SASS and LESS by default.
 * **Create a GUI.** A CLI is alright, but for someone brand new to coding, opening up a Terminal, installing node and npm, and then installing this module can be a little daunting. My goal is that this would be a one click solution. With Electron, this is totally possible! The flow that I'm thinking of is that the user launches the app, and then just starts coding. It'll create a directory for their code to live automatically, though the user could change it if they want.

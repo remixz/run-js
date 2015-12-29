@@ -13,7 +13,9 @@ const RunJS = require('../lib')
 // Create node_modules if it doesn't exist in the current folder
 mkdirp.sync(path.join(process.cwd(), 'node_modules'))
 
-let app = RunJS()
+let app = RunJS({
+  dir: process.cwd()
+})
 
 let server = app.listen(60274, () => {
   console.log(`run-js is listening on http://localhost:60274`)

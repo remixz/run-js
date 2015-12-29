@@ -6,6 +6,9 @@
   "bin": {
     "run-js": "./bin/run-js"
   },
+  "scripts": {
+    "test": "standard && tap test/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/remixz/run-js.git"
@@ -31,5 +34,11 @@
     "memdown": "^1.1.0",
     "mkdirp": "^0.5.1",
     "tsify": "^0.13.1"
+  },
+  "devDependencies": {
+    "async": "^1.5.0",
+    "request": "^2.67.0",
+    "standard": "^5.4.1",
+    "tap": "^2.3.5"
   }
 }

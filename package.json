@@ -29,6 +29,7 @@
     "cheerio": "^0.19.0",
     "coffeeify": "^2.0.1",
     "concat-stream": "^1.5.1",
+    "escape-html": "^1.0.3",
     "express": "^4.13.3",
     "gaze": "^0.5.2",
     "installify": "^1.0.2",

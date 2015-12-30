@@ -1,6 +1,7 @@
 # run-js
 
 [![Build Status](https://travis-ci.org/remixz/run-js.svg)](https://travis-ci.org/remixz/run-js)
+[![Coverage Status](https://coveralls.io/repos/remixz/run-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/remixz/run-js?branch=master)
 
 A prototyping server that just works. [*A first revision!*](#the-future)
 

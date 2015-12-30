@@ -42,9 +42,9 @@
   "devDependencies": {
     "async": "^1.5.0",
     "coveralls": "^2.11.6",
-    "nyc": "^5.0.1",
+    "nyc": "^5.1.0",
     "request": "^2.67.0",
     "standard": "^5.4.1",
-    "tap": "^2.3.5"
+    "tap": "^3.0.0"
   }
 }

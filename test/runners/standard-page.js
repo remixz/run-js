@@ -39,11 +39,18 @@ function standardPageRunner (testInfo, expected, t, cb) {
         t.error(err, 'bundle request shouldn\'t fail')
         t.equals(res.statusCode, 200, 'bundle status code should be 200')
 
-        // test for sourcemap, then remove for script equality check, since sourcemap can differ between environments
-        t.ok(body.indexOf('//# sourceMappingURL') > -1, 'inline sourcemap should exist')
-        body = body.split('//# sourceMappingURL')[0]
+        if (!testInfo.noSourceMap) {
+          // test for sourcemap, then remove for script equality check, since sourcemap can differ between environments
+          t.ok(body.indexOf('//# sourceMappingURL') > -1, 'inline sourcemap should exist')
+          body = body.split('//# sourceMappingURL')[0]
+          expected = expected.split('//# sourceMappingURL')[0]
+        }
 
-        t.equals(body, expected.split('//# sourceMappingURL')[0], 'bundle output should be correct')
+        if (testInfo.match) {
+          t.match(body, testInfo.match, 'bundle output should be correct')
+        } else {
+          t.equals(body, expected, 'bundle output should be correct')
+        }
         cb()
       })
     }

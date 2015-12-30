@@ -1,0 +1,36 @@
+<style>
+  .error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    font-size: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #ffefef;
+  }
+
+  .error .container {
+    max-width: 80%;
+    padding-top: 50px;
+  }
+
+  .error .container pre {
+    width: 100%;
+    word-wrap: break-word;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px;
+  }
+</style>
+
+<div class="error">
+  <div class="container">
+    <h1> <%= name %> </h1>
+
+    <pre><%= message %></pre>
+  </div>
+</div>

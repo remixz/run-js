@@ -40,8 +40,10 @@
     "md5-file": "^2.0.4",
     "memdown": "^1.1.0",
     "mkdirp": "^0.5.1",
+    "open": "0.0.5",
     "tiny-lr": "^0.2.1",
-    "tsify": "^0.13.1"
+    "tsify": "^0.13.1",
+    "yargs": "^3.31.0"
   },
   "devDependencies": {
     "async": "^1.5.0",

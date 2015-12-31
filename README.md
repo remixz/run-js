@@ -1,7 +1,9 @@
 # run-js
 
-[![Build Status](https://travis-ci.org/remixz/run-js.svg)](https://travis-ci.org/remixz/run-js)
+[![Build Status](https://travis-ci.org/remixz/run-js.svg?branch=master)](https://travis-ci.org/remixz/run-js)
 [![Coverage Status](https://coveralls.io/repos/remixz/run-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/remixz/run-js?branch=master)
+[![npm version](https://img.shields.io/npm/v/run-js.svg)](https://www.npmjs.com/package/run-js)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 A prototyping server that just works. [*A first revision!*](#the-future)
 

@@ -5,12 +5,13 @@ const request = require('request')
 let RunJS = require('../lib')
 
 tap.test('watch server', t => {
-  let app = RunJS({
+  let app = new RunJS({
     dir: __dirname,
-    watch: true
+    watch: true,
+    port: 9999
   })
 
-  let server = app.listen(9999, () => {
+  app.start(() => {
     request({
       uri: 'http://localhost:35729',
       json: true
@@ -20,7 +21,7 @@ tap.test('watch server', t => {
 
       t.equals(body.tinylr, 'Welcome', 'request body property `tinylr` should have expected response')
       t.end()
-      server.close(process.exit)
+      app.stop()
     })
   })
 })

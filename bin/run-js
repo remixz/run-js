@@ -14,12 +14,14 @@ const RunJS = require('../lib')
 mkdirp.sync(path.join(process.cwd(), 'node_modules'))
 
 // @TODO - add cli args
-let app = RunJS({
+let app = new RunJS({
   dir: process.cwd(),
-  watch: true
+  watch: true,
+  port: 60274
 })
 
-let server = app.listen(60274, () => {
+app.start(err => {
+  if (err) throw err
   console.log(`run-js is listening on http://localhost:60274`)
   console.log(`Open a file from this directory in the browser to see it in action.`)
   console.log('Example: Create a file named `foo.js` in this directory, and visit')

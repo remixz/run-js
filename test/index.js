@@ -19,18 +19,20 @@ fs.readdir(path.resolve(__dirname, './scenarios'), (err, tests) => {
         expected = fs.readFileSync(path.join(testDirectory, 'expected/bundle.js')).toString()
       }
 
-      let app = RunJS({
+      let app = new RunJS({
         dir: testInfo.dir || testInput,
-        watch: testInfo.watch || false
+        watch: testInfo.watch || false,
+        port: 9999
       })
 
-      let server = app.listen(9999, () => {
+      app.start(err => {
+        t.error(err, 'server started up successfully')
         testInfo.runner(testInfo, expected, t, (err) => {
           t.error(err, 'no errors from test runner')
           t.end()
-          server.close(cb)
+          app.stop(cb)
         })
       })
     })
-  }, process.exit)
+  })
 })

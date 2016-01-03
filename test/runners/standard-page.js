@@ -3,9 +3,9 @@ const fs = require('fs')
 const path = require('path')
 const request = require('request')
 const async = require('async')
-const template = require('lodash.template')
+const _ = require('lodash')
 
-let pageTemplate = template(fs.readFileSync(path.join(__dirname, '../../lib/template/template.html')))
+let pageTemplate = _.template(fs.readFileSync(path.join(__dirname, '../../lib/template/template.html')))
 
 function standardPageRunner (testInfo, expected, t, cb) {
   let url = testInfo.url

@@ -2,9 +2,9 @@
 const fs = require('fs')
 const path = require('path')
 const request = require('request')
-const template = require('lodash.template')
+const _ = require('lodash')
 
-let pageTemplate = template(fs.readFileSync(path.join(__dirname, '../../lib/template/error.html')))
+let pageTemplate = _.template(fs.readFileSync(path.join(__dirname, '../../lib/template/error.html')))
 
 function errorPageRunner (status, message) {
   return function (testInfo, expected, t, cb) {

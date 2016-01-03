@@ -22,7 +22,9 @@ fs.readdir(path.resolve(__dirname, './scenarios'), (err, tests) => {
       let app = new RunJS({
         dir: testInfo.dir || testInput,
         watch: testInfo.watch || false,
-        port: 9999
+        port: 9999,
+        handlers: require('../lib/default-handlers'),
+        transforms: require('../lib/default-transforms')
       })
 
       app.start(err => {

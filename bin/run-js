@@ -45,6 +45,10 @@ if (!path.isAbsolute(argv.dir)) {
   argv.dir = path.resolve(process.cwd(), argv.dir)
 }
 
+// @TODO - add as CLI args
+argv.handlers = require('../lib/default-handlers')
+argv.transforms = require('../lib/default-transforms')
+
 let app = new RunJS(argv)
 
 app.start(err => {

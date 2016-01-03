@@ -56,6 +56,6 @@ app.start(err => {
   } else {
     console.log(`Open a file from this directory in the browser to see it in action.`)
     console.log('Example: Create a file named `foo.js` in this directory, and visit')
-    console.log('http://localhost:60274/foo.js in your browser to see it ran.')
+    console.log('http://localhost:60274/foo.js in your browser to see it run.')
   }
 })

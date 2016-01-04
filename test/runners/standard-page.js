@@ -13,6 +13,7 @@ function standardPageRunner (testInfo, expected, t, cb) {
     url = testInfo.bundleUrl
   }
   let bundlePath = `/__bundle/${url.replace(/\//g, '-')}.bundle.js`
+  let didCache = false
 
   async.series([
     function getPage (cb) {
@@ -51,7 +52,13 @@ function standardPageRunner (testInfo, expected, t, cb) {
         } else {
           t.equals(body, expected, 'bundle output should be correct')
         }
-        cb()
+        if (testInfo.cache && !didCache) {
+          t.comment('running test again, for cached data')
+          didCache = true
+          getBundle(cb)
+        } else {
+          cb()
+        }
       })
     }
   ], cb)

@@ -10,6 +10,9 @@ const path = require('path')
 const mkdirp = require('mkdirp')
 const yargs = require('yargs')
 const open = require('open')
+const bole = require('bole')
+const log = bole('run-js')
+const garnish = require('garnish')
 const RunJS = require('../lib')
 
 let argv = yargs
@@ -71,17 +74,40 @@ argv.handlers = require('../lib/default-handlers').concat(handlers)
 argv.transforms = require('../lib/default-transforms').concat(transforms)
 argv.plugins = [].concat(plugins)
 
+let logger = garnish({
+  level: 'info',
+  name: 'run-js'
+})
+
+logger.pipe(require('stdout-stream'))
+
+bole.output({
+  level: 'info',
+  stream: logger
+})
+
 let app = new RunJS(argv)
 
 app.start(err => {
   if (err) throw err
-  console.log(`run-js is listening on http://localhost:${argv.port}`)
+  log.info({
+    message: 'run-js is listening on',
+    url: `http://localhost:${argv.port}`
+  })
   if (argv._[0]) {
-    console.log(`Opening http://localhost:${argv.port}/${argv._[0]} in your browser.`)
+    log.info({
+      message: `Opening http://localhost:${argv.port}/${argv._[0]} in your browser.`
+    })
     open(`http://localhost:${argv.port}/${argv._[0]}`)
   } else {
-    console.log(`Open a file from this directory in the browser to see it in action.`)
-    console.log('Example: Create a file named `foo.js` in this directory, and visit')
-    console.log('http://localhost:60274/foo.js in your browser to see it ran.')
+    log.info({
+      message: `Open a file from this directory in the browser to see it in action.`
+    })
+    log.info({
+      message: 'Example: Create a file named `foo.js` in this directory, and visit'
+    })
+    log.info({
+      message: 'http://localhost:60274/foo.js in your browser to see it ran.'
+    })
   }
 })

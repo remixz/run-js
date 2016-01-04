@@ -15,7 +15,7 @@ const RunJS = require('../lib')
 let argv = yargs
   .usage('Usage: run-js [--no-watch] [--dir=</path/to/directory>] [--port=<8080>] [path/to/script]\n\nPassing a relative path to a script file will automatically open it in the browser.')
   .options({
-    'watch': {
+    watch: {
       alias: 'w',
       type: 'boolean',
       default: true,
@@ -31,6 +31,24 @@ let argv = yargs
       alias: 'p',
       default: 60274,
       description: 'Port for the run-js server to listen on.'
+    },
+    handler: {
+      alias: 'h',
+      type: 'array',
+      default: [],
+      description: 'File handler(s) to add to the default handlers provided by run-js.'
+    },
+    transform: {
+      alias: 't',
+      type: 'array',
+      default: [],
+      description: 'Global transforms(s) to add to the default transforms provided by run-js.'
+    },
+    plugin: {
+      alias: 'pl',
+      type: 'array',
+      default: [],
+      description: 'Global plugin(s) to add to the default plugins provided by run-js.'
     }
   })
   .help('help')
@@ -45,9 +63,13 @@ if (!path.isAbsolute(argv.dir)) {
   argv.dir = path.resolve(process.cwd(), argv.dir)
 }
 
-// @TODO - add as CLI args
-argv.handlers = require('../lib/default-handlers')
-argv.transforms = require('../lib/default-transforms')
+let handlers = argv.handler.map(h => require(h))
+let transforms = argv.transform.map(t => require(t))
+let plugins = argv.plugin.map(p => require(p))
+
+argv.handlers = require('../lib/default-handlers').concat(handlers)
+argv.transforms = require('../lib/default-transforms').concat(transforms)
+argv.plugins = [].concat(plugins)
 
 let app = new RunJS(argv)
 

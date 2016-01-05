@@ -29,6 +29,8 @@ $ run-js
 
 It will print out the URL it's running on. From there, just visit any of your scripts in the browser, and they'll just work.
 
+For API usage, [see the documentation file.](docs/api.md)
+
 ## Features
 
 ### Instantly working scripts
@@ -42,6 +44,10 @@ Creating a file named `index.js` (or whatever type of file you prefer) will act 
 ### Source maps
 
 No need to go through the hullabaloo of setting up source maps. They're just there, and they just work.
+
+### Live reload
+
+When you make a change, the browser will automatically reload. Easy peasy.
 
 ### Custom HTML pages
 

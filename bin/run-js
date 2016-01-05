@@ -13,7 +13,6 @@ const open = require('open')
 const bole = require('bole')
 const log = bole('run-js')
 const garnish = require('garnish')
-const prettyBytes = require('pretty-bytes')
 const RunJS = require('../lib')
 const setupLogger = require('./setup-logger')
 

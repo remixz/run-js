@@ -13,7 +13,9 @@ const open = require('open')
 const bole = require('bole')
 const log = bole('run-js')
 const garnish = require('garnish')
+const prettyBytes = require('pretty-bytes')
 const RunJS = require('../lib')
+const setupLogger = require('./setup-logger')
 
 let argv = yargs
   .usage('Usage: run-js [--no-watch] [--dir=</path/to/directory>] [--port=<8080>] [path/to/script]\n\nPassing a relative path to a script file will automatically open it in the browser.')
@@ -88,6 +90,8 @@ bole.output({
 
 let app = new RunJS(argv)
 
+setupLogger(app)
+
 app.start(err => {
   if (err) throw err
   log.info({
@@ -95,19 +99,11 @@ app.start(err => {
     url: `http://localhost:${argv.port}`
   })
   if (argv._[0]) {
-    log.info({
-      message: `Opening http://localhost:${argv.port}/${argv._[0]} in your browser.`
-    })
+    log.info(`Opening http://localhost:${argv.port}/${argv._[0]} in your browser.`)
     open(`http://localhost:${argv.port}/${argv._[0]}`)
   } else {
-    log.info({
-      message: `Open a file from this directory in the browser to see it in action.`
-    })
-    log.info({
-      message: 'Example: Create a file named `foo.js` in this directory, and visit'
-    })
-    log.info({
-      message: 'http://localhost:60274/foo.js in your browser to see it ran.'
-    })
+    log.info(`Open a file from this directory in the browser to see it in action.`)
+    log.info('Example: Create a file named `foo.js` in this directory, and visit')
+    log.info('http://localhost:60274/foo.js in your browser to see it ran.')
   }
 })

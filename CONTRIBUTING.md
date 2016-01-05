@@ -21,7 +21,7 @@ There are a few basic ground-rules for contributors:
 2. **Non-master branches** ought to be used for ongoing work.
 3. **External API changes and significant modifications** ought to be subject to an **internal pull-request** to solicit feedback from other contributors.
 4. Internal pull-requests to solicit feedback are *encouraged* for any other non-trivial contribution but left to the discretion of the contributor.
-5. Contributors should adhere to the [JavaScript Standard code-style]((https://github.com/feross/standard).
+5. Contributors should adhere to the [JavaScript Standard code-style](https://github.com/feross/standard).
 
 ### Releases
 

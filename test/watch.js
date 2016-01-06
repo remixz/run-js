@@ -40,23 +40,26 @@ async.series([
   cb => {
     tap.test('watch – modifying files', t => {
       let app = new RunJS(appOpts)
+      mkdirp.sync(__dirname + '/_test')
 
       app.start(err => {
         t.error(err, 'server started up successfully')
 
-        mkdirp.sync(__dirname + '/_test')
-        fs.writeFileSync(__dirname + '/_test/file.js')
-        request({
-          uri: 'http://localhost:35729/changed?files=watch_test.js',
-          json: true
-        }, (err, res, body) => {
-          t.error(err, 'request should complete')
-          t.equals(res.statusCode, 200, 'request should have status code 200')
+        app.on('watch:ready', () => {
+          fs.writeFileSync(__dirname + '/_test/file.js')
+        })
 
-          t.strictSame(body, { clients: [], files: ['watch_test.js'] }, 'should have expected response')
+        app.on('watch:all', (event, fp) => {
+          t.equals(event, 'add', 'watch event should be correct')
+          t.equals(fp, __dirname + '/_test/file.js', 'watch file path should be correct')
+          app.stop(() => {
+            rimraf(__dirname + '/_test', cb)
+          })
           t.end()
-          app.stop()
-          rimraf(__dirname + '/_test', cb)
+        })
+
+        app.on('watch:error', err => {
+          t.bailout(err)
         })
       })
     })

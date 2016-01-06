@@ -15,7 +15,7 @@ function setupLogger (app) {
   })
 
   app.on('bundle', info => {
-    info.message = (info.cached ? 'Returned cached bundle for' : 'Generated bundle for ') + `${info.file} (${prettyBytes(info.size)}) in ${info.bundleTime}ms`
+    info.message = (info.cached ? 'Returned cached bundle for ' : 'Generated bundle for ') + `${info.file} (${prettyBytes(info.size)}) in ${info.bundleTime}ms`
     info.type = 'bundle'
     log.info(info)
   })

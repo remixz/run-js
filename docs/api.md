@@ -93,8 +93,8 @@ fired when the watch server is ready.
 
 ### app.on('watch:all', function (event, filepath) {})
 
-fired when there's a file change. `event` may either be `added`, `changed`, or `deleted`. `filepath` is the absolute path to the file changed.
+fired when there's a watch event. `event` may be [any of the events fired by chokidar.](https://github.com/paulmillr/chokidar#methods--events)
 
 ### app.on('watch:error', function (err) {})
 
-fired when the watch server has an error. includes the error from `gaze`.
+fired when the watch server has an error. includes the error from `chokidar`.

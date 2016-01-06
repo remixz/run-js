@@ -8,7 +8,7 @@
 A prototyping server that just works.
 
 *Click to enlarge image:*
-[![run-js demo](https://s3.amazonaws.com/f.cl.ly/items/3V3Z1U1L0x352u032J2k/run-js-demo.gif)](https://s3.amazonaws.com/f.cl.ly/items/3V3Z1U1L0x352u032J2k/run-js-demo.gif)
+[![run-js demo](https://s3.amazonaws.com/f.cl.ly/items/3U1J411P0L3x092D2h3F/run-js-demo2.gif)](https://s3.amazonaws.com/f.cl.ly/items/3U1J411P0L3x092D2h3F/run-js-demo2.gif)
 
 ## Installation
 
